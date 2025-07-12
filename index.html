@@ -1,115 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Opulent Jewelers</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #222;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #f2f2f2;
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #111;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    nav a:hover {
-      color: #0077cc;
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-    h3 {
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Opulent Jewelers</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background-color: #fff;
+    color: #222;
+  }
+  header {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    background: #f2f2f2;
+    border-bottom: 2px solid #ccc;
+  }
+  .tab {
+    cursor: pointer;
+    padding: 15px 30px;
+    font-weight: bold;
+    color: #111;
+    border: none;
+    background: none;
+    outline: none;
+    transition: background-color 0.3s;
+    user-select: none;
+  }
+  .tab:hover {
+    background-color: #ddd;
+  }
+  .tab.active {
+    background-color: #0077cc;
+    color: white;
+  }
+  .tab-content {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px 40px;
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .price-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .price-column {
+    flex: 1 1 300px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background: #fafafa;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .price-column h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+  }
+  .price-column ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .price-column ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+</style>
 </head>
 <body>
 
-  <header>Opulent Jewelers</header>
+<header>Opulent Jewelers</header>
 
-  <nav>
-    <a href="#diamonds">Diamonds</a>
-    <a href="#prices">Prices</a>
-    <a href="#care">Care</a>
-  </nav>
+<div class="tabs">
+  <button class="tab active" data-tab="diamonds">Diamonds</button>
+  <button class="tab" data-tab="prices">Prices</button>
+  <button class="tab" data-tab="care">Care</button>
+</div>
 
-  <section id="diamonds">
-    <h2>Diamonds</h2>
-    <p>Details coming soon.</p>
-  </section>
+<div id="diamonds" class="tab-content active">
+  <h2>Diamonds</h2>
+  <p>Details coming soon.</p>
+</div>
 
-  <section id="prices">
-    <h2>Prices</h2>
+<div id="prices" class="tab-content">
+  <h2>Prices</h2>
+  <div class="price-table">
 
-    <h3>Polished Diamonds (With & Without Certificate)</h3>
-    <ul>
-      <li>0.5ct SI1: $350 retail (with certificate), $280 wholesale (with certificate), $250 retail (without certificate), $200 wholesale (without certificate)</li>
-      <li>0.5ct VS2: $400 retail (with certificate), $320 wholesale (with certificate), $300 retail (without certificate), $240 wholesale (without certificate)</li>
-      <li>0.5ct VS1: $450 retail (with certificate), $360 wholesale (with certificate), $350 retail (without certificate), $280 wholesale (without certificate)</li>
-      <!-- Add all other polished diamonds similarly -->
-    </ul>
+    <div class="price-column">
+      <h3>Polished Diamonds (With & Without Certificate)</h3>
+      <ul>
+        <li>0.5ct SI1: $350 retail (with certificate), $280 wholesale (with certificate), $250 retail (without certificate), $200 wholesale (without certificate)</li>
+        <li>0.5ct VS2: $400 retail (with certificate), $320 wholesale (with certificate), $300 retail (without certificate), $240 wholesale (without certificate)</li>
+        <li>0.5ct VS1: $450 retail (with certificate), $360 wholesale (with certificate), $350 retail (without certificate), $280 wholesale (without certificate)</li>
+        <li>0.5ct VVS2: $500 retail (with certificate), $400 wholesale (with certificate), $400 retail (without certificate), $320 wholesale (without certificate)</li>
+        <li>0.5ct VVS1: $550 retail (with certificate), $440 wholesale (with certificate), $450 retail (without certificate), $360 wholesale (without certificate)</li>
 
-    <h3>Rough Uncut Lab-Grown CVD Diamonds</h3>
-    <ul>
-      <li>4–5ct (7x7mm): $600 retail, $480 wholesale</li>
-      <li>5–6ct (8x8mm): $900 retail, $720 wholesale</li>
-      <li>7–8ct (9x9mm): $1,500 retail, $1,200 wholesale</li>
-      <li>9.5–10ct (10x10mm): $3,000 retail, $2,400 wholesale</li>
-    </ul>
+        <li>1.0ct SI1: $600 retail (with certificate), $480 wholesale (with certificate), $350 retail (without certificate), $280 wholesale (without certificate)</li>
+        <li>1.0ct VS2: $900 retail (with certificate), $720 wholesale (with certificate), $500 retail (without certificate), $400 wholesale (without certificate)</li>
+        <li>1.0ct VS1: $900 retail (with certificate), $720 wholesale (with certificate), $400 retail (without certificate), $320 wholesale (without certificate)</li>
+        <li>1.0ct VVS2: $1,000 retail (with certificate), $800 wholesale (with certificate), $600 retail (without certificate), $480 wholesale (without certificate)</li>
+        <li>1.0ct VVS1: $1,100 retail (with certificate), $880 wholesale (with certificate), $650 retail (without certificate), $520 wholesale (without certificate)</li>
 
-    <h3>Tiny Melee Diamonds (Polished) Per Carat</h3>
-    <ul>
-      <li>0.7–0.9mm: $525 retail (VS), $575 retail (VVS), $420 wholesale (VS), $460 wholesale (VVS)</li>
-      <li>1.0mm: $540 retail (VS), $590 retail (VVS), $432 wholesale (VS), $472 wholesale (VVS)</li>
-      <li>1.1mm: $550 retail (VS), $600 retail (VVS), $440 wholesale (VS), $480 wholesale (VVS)</li>
-      <!-- Add the rest similarly -->
-    </ul>
-  </section>
+        <li>1.5ct SI1: $800 retail (with certificate), $640 wholesale (with certificate), $450 retail (without certificate), $360 wholesale (without certificate)</li>
+        <li>1.5ct VS2: $1,250 retail (with certificate), $1,000 wholesale (with certificate), $700 retail (without certificate), $560 wholesale (without certificate)</li>
+        <li>1.5ct VS1: $1,300 retail (with certificate), $1,040 wholesale (with certificate), $750 retail (without certificate), $600 wholesale (without certificate)</li>
+        <li>1.5ct VVS2: $1,400 retail (with certificate), $1,120 wholesale (with certificate), $850 retail (without certificate), $680 wholesale (without certificate)</li>
+        <li>1.5ct VVS1: $1,500 retail (with certificate), $1,200 wholesale (with certificate), $900 retail (without certificate), $720 wholesale (without certificate)</li>
 
-  <section id="care">
-    <h2>Care</h2>
-    <p>Tips and guides for caring for your diamonds coming soon.</p>
-  </section>
+        <li>2.0ct SI1: $1,100 retail (with certificate), $880 wholesale (with certificate), $600 retail (without certificate), $480 wholesale (without certificate)</li>
+        <li>2.0ct VS2: $1,900 retail (with certificate), $1,520 wholesale (with certificate), $1,100 retail (without certificate), $880 wholesale (without certificate)</li>
+        <li>2.0ct VS1: $2,000 retail (with certificate), $1,600 wholesale (with certificate), $1,200 retail (without certificate), $960 wholesale (without certificate)</li>
+        <li>2.0ct VVS2: $2,200 retail (with certificate), $1,760 wholesale (with certificate), $1,400 retail (without certificate), $1,120 wholesale (without certificate)</li>
+        <li>2.0ct VVS1: $2,400 retail (with certificate), $1,920 wholesale (with certificate), $1,600 retail (without certificate), $1,280 wholesale (without certificate)</li>
+
+        <li>3.0ct SI1: $1,800 retail (with certificate), $1,440 wholesale (with certificate), $950 retail (without certificate), $760 wholesale (without certificate)</li>
+        <li>3.0ct VS2: $3,000 retail (with certificate), $2,400 wholesale (with certificate), $1,600 retail (without certificate), $1,280 wholesale (without certificate)</li>
+        <li>3.0ct VS1: $3,200 retail (with certificate), $2,560 wholesale (with certificate), $1,800 retail (without certificate), $1,440 wholesale (without certificate)</li>
+        <li>3.0ct VVS2: $3,500 retail (with certificate), $2,800 wholesale (with certificate), $2,000 retail (without certificate), $1,600 wholesale (without certificate)</li>
+        <li>3.0ct VVS1: $3,800 retail (with certificate), $3,040 wholesale (with certificate), $2,200 retail (without certificate), $1,760 wholesale (without certificate)</li>
+      </ul>
+    </div>
+
+    <div class="price-column">
+      <h3>Rough Uncut Lab-Grown CVD Diamonds</h3>
+      <ul>
+        <li>4–5ct (7x7mm): $600 retail, $480 wholesale</li>
+        <li>5–6ct (8x8mm): $900 retail, $720 wholesale</li>
+        <li>7–8ct (9x9mm): $1,500 retail, $1,200 wholesale</li>
+        <li>9.5–10ct (10x10mm): $3,000 retail, $2,400 wholesale</li>
+      </ul>
+    </div>
+
+    <div class="price-column">
+      <h3>Tiny Melee Diamonds (Polished) Per Carat</h3>
+      <ul>
+        <li>0.7–0.9mm: $525 retail (VS), $575 retail (VVS), $420 wholesale (VS), $460 wholesale (VVS)</li>
+        <li>1.0mm: $540 retail (VS), $590 retail (VVS), $432 wholesale (VS), $472 wholesale (VVS)</li>
+        <li>1.1mm: $550 retail (VS), $600 retail (VVS), $440 wholesale (VS), $480 wholesale (VVS)</li>
+        <li>1.2mm: $565 retail (VS), $615 retail (VVS), $452 wholesale (VS), $492 wholesale (VVS)</li>
+        <li>1.25mm: $580 retail (VS), $630 retail (VVS), $464 wholesale (VS), $504 wholesale (VVS)</li>
+        <li>1.3mm: $600 retail (VS), $650 retail (VVS), $480 wholesale (VS), $520 wholesale (VVS)</li>
+        <li>1.4mm: $615 retail (VS), $670 retail (VVS), $492 wholesale (VS), $536 wholesale (VVS)</li>
+        <li>1.5mm: $635 retail (VS), $685 retail (VVS), $508 wholesale (VS), $548 wholesale (VVS)</li>
+        <li>1.6mm: $650 retail (VS), $700 retail (VVS), $520 wholesale (VS), $560 wholesale (VVS)</li>
+        <li>1.7mm: $665 retail (VS), $720 retail (VVS), $532 wholesale (VS), $576 wholesale (VVS)</li>
+        <li>1.8mm: $680 retail (VS), $740 retail (VVS), $544 wholesale (VS), $592 wholesale (VVS)</li>
+        <li>1.9mm: $705 retail (VS), $765 retail (VVS), $564 wholesale (VS), $612 wholesale (VVS)</li>
+        <li>2.0mm: $725 retail (VS), $785 retail (VVS), $580 wholesale (VS), $628 wholesale (VVS)</li>
+        <li>2.1mm: $750 retail (VS), $810 retail (VVS), $600 wholesale (VS), $648 wholesale (VVS)</li>
+        <li>2.2mm: $775 retail (VS), $830 retail (VVS), $620 wholesale (VS), $664 wholesale (VVS)</li>
+        <li>2.3mm: $800 retail (VS), $860 retail (VVS), $640 wholesale (VS), $688 wholesale (VVS)</li>
+        <li>2.4mm: $825 retail (VS), $900 retail (VVS), $660 wholesale (VS), $720 wholesale (VVS)</li>
+        <li>2.5mm: $840 retail (VS), $935 retail (VVS), $672 wholesale (VS), $748 wholesale (VVS)</li>
+        <li>2.6mm: $875 retail (VS), $965 retail (VVS), $700 wholesale (VS), $772 wholesale (VVS)</li>
+        <li>2.75mm: $900 retail (VS), $1,025 retail (VVS), $720 wholesale (VS), $820 wholesale (VVS)</li>
+        <li>2.9mm: $1,000 retail (VS), $1,100 retail (VVS), $800 wholesale (VS), $880 wholesale (VVS)</li>
+        <li>3.0mm: $1,100 retail (VS), $1,175 retail (VVS), $880 wholesale (VS), $940 wholesale (VVS)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div id="care" class="tab-content">
+  <h2>Care</h2>
+  <p>Tips and guides for caring for your diamonds coming soon.</p>
+</div>
+
+<script>
+  // Tab switching logic
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      tabContents.forEach(tc => {
+        if (tc.id === target) {
+          tc.classList.add('active');
+        } else {
+          tc.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
