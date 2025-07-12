@@ -1,106 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Opulent Jewelers</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background: white;
-    color: #222;
-  }
-  header {
-    background: #111;
-    color: white;
-    padding: 20px;
-    font-size: 28px;
-    text-align: center;
-    font-weight: bold;
-  }
-  nav {
-    display: flex;
-    justify-content: center;
-    background: #f2f2f2;
-    border-bottom: 2px solid #ccc;
-  }
-  nav button {
-    background: none;
-    border: none;
-    padding: 15px 30px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  nav button.active {
-    background: #0077cc;
-    color: white;
-  }
-  section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
-    display: none;
-  }
-  section.active {
-    display: block;
-  }
-  h2 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-  }
-  h3 {
-    margin-top: 30px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 6px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-  }
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px 12px;
-    text-align: center;
-  }
-  th {
-    background-color: #f9f9f9;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opulent Jewelers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f2f2f2;
+      padding: 10px 0;
+    }
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f9f9f9;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    Opulent Jewelers
+  </header>
+  <nav>
+    <a href="#diamonds">Diamonds</a>
+    <a href="#prices">Prices</a>
+    <a href="#care">Care</a>
+  </nav>
 
-<header>Opulent Jewelers</header>
+  <section id="diamonds">
+    <h2>Diamonds</h2>
+    <p>Details coming soon.</p>
+  </section>
 
-<nav>
-  <button class="tab active" data-tab="diamonds">Diamonds</button>
-  <button class="tab" data-tab="prices">Prices</button>
-  <button class="tab" data-tab="care">Care</button>
-</nav>
-
-<section id="diamonds" class="active">
-  <h2>Diamonds</h2>
-  <p>Details coming soon.</p>
-</section>
-
-<section id="prices">
-  <h2>Prices</h2>
-
-  <h3>1. Polished Diamonds (With & Without Certificate)</h3>
-  <table>
-    <thead>
+  <section id="prices">
+    <h2>Prices</h2>
+    <p>Below is a breakdown of our diamond pricing chart:</p>
+    <h3>1. Polished Diamonds (With & Without Certificate)</h3>
+    <table>
       <tr>
-        <th>Carat</th>
-        <th>Clarity</th>
-        <th>With Certificate (Retail)</th>
-        <th>With Certificate (Wholesale 20% off)</th>
-        <th>Without Certificate (Retail)</th>
-        <th>Without Certificate (Wholesale 20% off)</th>
+        <th>Carat</th><th>Clarity</th><th>With Cert (Retail)</th><th>With Cert (Wholesale)</th><th>Without Cert (Retail)</th><th>Without Cert (Wholesale)</th>
       </tr>
-    </thead>
-    <tbody>
       <tr><td>0.5</td><td>SI1</td><td>$350</td><td>$280</td><td>$250</td><td>$200</td></tr>
       <tr><td>0.5</td><td>VS2</td><td>$400</td><td>$320</td><td>$300</td><td>$240</td></tr>
       <tr><td>0.5</td><td>VS1</td><td>$450</td><td>$360</td><td>$350</td><td>$280</td></tr>
@@ -109,56 +87,38 @@
       <tr><td>1.0</td><td>SI1</td><td>$600</td><td>$480</td><td>$350</td><td>$280</td></tr>
       <tr><td>1.0</td><td>VS2</td><td>$900</td><td>$720</td><td>$500</td><td>$400</td></tr>
       <tr><td>1.0</td><td>VS1</td><td>$900</td><td>$720</td><td>$400</td><td>$320</td></tr>
-      <tr><td>1.0</td><td>VVS2</td><td>$1,000</td><td>$800</td><td>$600</td><td>$480</td></tr>
-      <tr><td>1.0</td><td>VVS1</td><td>$1,100</td><td>$880</td><td>$650</td><td>$520</td></tr>
+      <tr><td>1.0</td><td>VVS2</td><td>$1000</td><td>$800</td><td>$600</td><td>$480</td></tr>
+      <tr><td>1.0</td><td>VVS1</td><td>$1100</td><td>$880</td><td>$650</td><td>$520</td></tr>
       <tr><td>1.5</td><td>SI1</td><td>$800</td><td>$640</td><td>$450</td><td>$360</td></tr>
-      <tr><td>1.5</td><td>VS2</td><td>$1,250</td><td>$1,000</td><td>$700</td><td>$560</td></tr>
-      <tr><td>1.5</td><td>VS1</td><td>$1,300</td><td>$1,040</td><td>$750</td><td>$600</td></tr>
-      <tr><td>1.5</td><td>VVS2</td><td>$1,400</td><td>$1,120</td><td>$850</td><td>$680</td></tr>
-      <tr><td>1.5</td><td>VVS1</td><td>$1,500</td><td>$1,200</td><td>$900</td><td>$720</td></tr>
-      <tr><td>2.0</td><td>SI1</td><td>$1,100</td><td>$880</td><td>$600</td><td>$480</td></tr>
-      <tr><td>2.0</td><td>VS2</td><td>$1,900</td><td>$1,520</td><td>$1,100</td><td>$880</td></tr>
-      <tr><td>2.0</td><td>VS1</td><td>$2,000</td><td>$1,600</td><td>$1,200</td><td>$960</td></tr>
-      <tr><td>2.0</td><td>VVS2</td><td>$2,200</td><td>$1,760</td><td>$1,400</td><td>$1,120</td></tr>
-      <tr><td>2.0</td><td>VVS1</td><td>$2,400</td><td>$1,920</td><td>$1,600</td><td>$1,280</td></tr>
-      <tr><td>3.0</td><td>SI1</td><td>$1,800</td><td>$1,440</td><td>$950</td><td>$760</td></tr>
-      <tr><td>3.0</td><td>VS2</td><td>$3,000</td><td>$2,400</td><td>$1,600</td><td>$1,280</td></tr>
-      <tr><td>3.0</td><td>VS1</td><td>$3,200</td><td>$2,560</td><td>$1,800</td><td>$1,440</td></tr>
-      <tr><td>3.0</td><td>VVS2</td><td>$3,500</td><td>$2,800</td><td>$2,000</td><td>$1,600</td></tr>
-      <tr><td>3.0</td><td>VVS1</td><td>$3,800</td><td>$3,040</td><td>$2,200</td><td>$1,760</td></tr>
-    </tbody>
-  </table>
+      <tr><td>1.5</td><td>VS2</td><td>$1250</td><td>$1000</td><td>$700</td><td>$560</td></tr>
+      <tr><td>1.5</td><td>VS1</td><td>$1300</td><td>$1040</td><td>$750</td><td>$600</td></tr>
+      <tr><td>1.5</td><td>VVS2</td><td>$1400</td><td>$1120</td><td>$850</td><td>$680</td></tr>
+      <tr><td>1.5</td><td>VVS1</td><td>$1500</td><td>$1200</td><td>$900</td><td>$720</td></tr>
+      <tr><td>2.0</td><td>SI1</td><td>$1100</td><td>$880</td><td>$600</td><td>$480</td></tr>
+      <tr><td>2.0</td><td>VS2</td><td>$1900</td><td>$1520</td><td>$1100</td><td>$880</td></tr>
+      <tr><td>2.0</td><td>VS1</td><td>$2000</td><td>$1600</td><td>$1200</td><td>$960</td></tr>
+      <tr><td>2.0</td><td>VVS2</td><td>$2200</td><td>$1760</td><td>$1400</td><td>$1120</td></tr>
+      <tr><td>2.0</td><td>VVS1</td><td>$2400</td><td>$1920</td><td>$1600</td><td>$1280</td></tr>
+      <tr><td>3.0</td><td>SI1</td><td>$1800</td><td>$1440</td><td>$950</td><td>$760</td></tr>
+      <tr><td>3.0</td><td>VS2</td><td>$3000</td><td>$2400</td><td>$1600</td><td>$1280</td></tr>
+      <tr><td>3.0</td><td>VS1</td><td>$3200</td><td>$2560</td><td>$1800</td><td>$1440</td></tr>
+      <tr><td>3.0</td><td>VVS2</td><td>$3500</td><td>$2800</td><td>$2000</td><td>$1600</td></tr>
+      <tr><td>3.0</td><td>VVS1</td><td>$3800</td><td>$3040</td><td>$2200</td><td>$1760</td></tr>
+    </table>
 
-  <h3>2. Rough Uncut Lab-Grown CVD Diamonds (D-F Color, VS–VVS Clarity)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Size / Carat</th>
-        <th>Retail Price (each)</th>
-        <th>Wholesale Price (20% off)</th>
-      </tr>
-    </thead>
-    <tbody>
+    <h3>2. Rough Uncut Lab-Grown CVD Diamonds</h3>
+    <table>
+      <tr><th>Size / Carat</th><th>Retail Price</th><th>Wholesale Price</th></tr>
       <tr><td>4–5 ct (7x7 mm)</td><td>$600</td><td>$480</td></tr>
       <tr><td>5–6 ct (8x8 mm)</td><td>$900</td><td>$720</td></tr>
-      <tr><td>7–8 ct (9x9 mm)</td><td>$1,500</td><td>$1,200</td></tr>
-      <tr><td>9.5–10 ct (10x10 mm)</td><td>$3,000</td><td>$2,400</td></tr>
-    </tbody>
-  </table>
+      <tr><td>7–8 ct (9x9 mm)</td><td>$1500</td><td>$1200</td></tr>
+      <tr><td>9.5–10 ct (10x10 mm)</td><td>$3000</td><td>$2400</td></tr>
+    </table>
 
-  <h3>3. Tiny Melee Diamonds (Polished) Per Carat</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Size (mm)</th>
-        <th>VS Retail</th>
-        <th>VVS Retail</th>
-        <th>VS Wholesale (20% off)</th>
-        <th>VVS Wholesale (20% off)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>0.7 – 0.9</td><td>$525</td><td>$575</td><td>$420</td><td>$460</td></tr>
+    <h3>3. Tiny Melee Diamonds (Polished per Carat)</h3>
+    <table>
+      <tr><th>Size (mm)</th><th>VS Retail</th><th>VVS Retail</th><th>VS Wholesale</th><th>VVS Wholesale</th></tr>
+      <tr><td>0.7–0.9</td><td>$525</td><td>$575</td><td>$420</td><td>$460</td></tr>
       <tr><td>1.0</td><td>$540</td><td>$590</td><td>$432</td><td>$472</td></tr>
       <tr><td>1.1</td><td>$550</td><td>$600</td><td>$440</td><td>$480</td></tr>
       <tr><td>1.2</td><td>$565</td><td>$615</td><td>$452</td><td>$492</td></tr>
@@ -177,32 +137,15 @@
       <tr><td>2.4</td><td>$825</td><td>$900</td><td>$660</td><td>$720</td></tr>
       <tr><td>2.5</td><td>$840</td><td>$935</td><td>$672</td><td>$748</td></tr>
       <tr><td>2.6</td><td>$875</td><td>$965</td><td>$700</td><td>$772</td></tr>
-      <tr><td>2.75</td><td>$900</td><td>$1,025</td><td>$720</td><td>$820</td></tr>
-      <tr><td>2.9</td><td>$1,000</td><td>$1,100</td><td>$800</td><td>$880</td></tr>
-      <tr><td>3.0</td><td>$1,100</td><td>$1,175</td><td>$880</td><td>$940</td></tr>
-    </tbody>
-  </table>
-</section>
+      <tr><td>2.75</td><td>$900</td><td>$1025</td><td>$720</td><td>$820</td></tr>
+      <tr><td>2.9</td><td>$1000</td><td>$1100</td><td>$800</td><td>$880</td></tr>
+      <tr><td>3.0</td><td>$1100</td><td>$1175</td><td>$880</td><td>$940</td></tr>
+    </table>
+  </section>
 
-<section id="care">
-  <h2>Care</h2>
-  <p>Tips and guides for caring for your diamonds coming soon.</p>
-</section>
-
-<script>
-  const tabs = document.querySelectorAll('nav button');
-  const sections = document.querySelectorAll('section');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      sections.forEach(s => s.classList.remove('active'));
-
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.tab).classList.add('active');
-    });
-  });
-</script>
-
+  <section id="care">
+    <h2>Care</h2>
+    <p>Tips and guides for caring for your diamonds coming soon.</p>
+  </section>
 </body>
 </html>
