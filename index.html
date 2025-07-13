@@ -64,9 +64,17 @@
     border: 1px solid #ddd;
     padding: 8px 12px;
     text-align: center;
+    user-select: none;
   }
   th {
     background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  th.sort-asc::after {
+    content: " ▲";
+  }
+  th.sort-desc::after {
+    content: " ▼";
   }
 
   /* Order form styles */
@@ -131,7 +139,7 @@
   <h2>Prices</h2>
 
   <h3>1. Polished Diamonds (With & Without Certificate)</h3>
-  <table>
+  <table class="sortable">
     <thead>
       <tr>
         <th>Carat</th>
@@ -172,7 +180,7 @@
   </table>
 
   <h3>2. Rough Uncut Lab-Grown CVD Diamonds (D-F Color, VS–VVS Clarity)</h3>
-  <table>
+  <table class="sortable">
     <thead>
       <tr>
         <th>Size / Carat</th>
@@ -189,7 +197,7 @@
   </table>
 
   <h3>3. Tiny Melee Diamonds (Polished) Per Carat</h3>
-  <table>
+  <table class="sortable">
     <thead>
       <tr>
         <th>Size (mm)</th>
@@ -263,7 +271,7 @@
 </section>
 
 <script>
-  // Tab navigation
+  // Tabs navigation
   const tabs = document.querySelectorAll('nav button');
   const sections = document.querySelectorAll('section');
 
@@ -271,13 +279,53 @@
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       sections.forEach(s => s.classList.remove('active'));
-
       tab.classList.add('active');
       document.getElementById(tab.dataset.tab).classList.add('active');
     });
   });
 
-  // Order form submission with POST to backend
+  // Sortable tables
+  document.querySelectorAll('table.sortable').forEach(table => {
+    const headers = table.querySelectorAll('th');
+    headers.forEach((th, idx) => {
+      th.addEventListener('click', () => {
+        const tbody = table.tBodies[0];
+        const rows = Array.from(tbody.rows);
+        const currentIsAscending = th.classList.contains('sort-asc');
+        
+        // Remove sort indicators from all headers
+        headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+
+        // Sort rows
+        rows.sort((a, b) => {
+          const aText = a.cells[idx].textContent.trim();
+          const bText = b.cells[idx].textContent.trim();
+
+          // Try to parse numbers (remove $ and commas)
+          const aNum = parseFloat(aText.replace(/[$,]/g, ''));
+          const bNum = parseFloat(bText.replace(/[$,]/g, ''));
+
+          if (!isNaN(aNum) && !isNaN(bNum)) {
+            return currentIsAscending ? bNum - aNum : aNum - bNum;
+          }
+          // else string compare
+          return currentIsAscending ? bText.localeCompare(aText) : aText.localeCompare(bText);
+        });
+
+        // Add sort direction indicator
+        if (currentIsAscending) {
+          th.classList.add('sort-desc');
+        } else {
+          th.classList.add('sort-asc');
+        }
+
+        // Append sorted rows
+        rows.forEach(row => tbody.appendChild(row));
+      });
+    });
+  });
+
+  // Order form submit
   document.getElementById('orderForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -297,4 +345,24 @@
     try {
       const response = await fetch('https://opulent-backend-z9ro.onrender.com/api/orders', {
         method: 'POST',
-        headers: { 'Content-Type':
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not OK');
+      }
+
+      const result = await response.json();
+
+      alert('Order request submitted successfully! We will contact you shortly.');
+      e.target.reset();
+    } catch (error) {
+      alert('Failed to submit order request. Please try again later.');
+      console.error('Order submit error:', error);
+    }
+  });
+</script>
+
+</body>
+</html>
