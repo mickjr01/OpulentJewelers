@@ -68,6 +68,43 @@
   th {
     background-color: #f9f9f9;
   }
+
+  /* Order form styles */
+  form {
+    margin-top: 20px;
+    max-width: 500px;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select {
+    width: 100%;
+    padding: 8px 6px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  input[type="submit"] {
+    margin-top: 25px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #005fa3;
+  }
+  .note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
 </style>
 </head>
 <body>
@@ -78,6 +115,7 @@
   <button class="tab active" data-tab="diamonds">Diamonds</button>
   <button class="tab" data-tab="prices">Prices</button>
   <button class="tab" data-tab="care">Care</button>
+  <button class="tab" data-tab="order">Order</button>
 </nav>
 
 <section id="diamonds" class="active">
@@ -189,6 +227,37 @@
   <p>Tips and guides for caring for your diamonds coming soon.</p>
 </section>
 
+<section id="order">
+  <h2>Place an Order</h2>
+  <form id="orderForm">
+    <label for="diamondType">Diamond Type:</label>
+    <select id="diamondType" name="diamondType" required>
+      <option value="">-- Select Diamond Type --</option>
+      <option value="polished">Polished</option>
+      <option value="rough">Rough</option>
+      <option value="melee">Tiny Melee</option>
+    </select>
+
+    <label for="size">Size / Carat (or mm):</label>
+    <input type="text" id="size" name="size" required placeholder="e.g. 1.5 or 2.3 mm" />
+
+    <label for="clarity">Clarity (if applicable):</label>
+    <input type="text" id="clarity" name="clarity" placeholder="e.g. SI1, VS2, VVS1" />
+
+    <label for="quantity">Quantity (minimum 1; 5+ for wholesale):</label>
+    <input type="number" id="quantity" name="quantity" min="1" required />
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <input type="submit" value="Submit Order Request" />
+  </form>
+  <div class="note">
+    After you submit, we will contact you to confirm and arrange payment.<br />
+    Wholesale orders require minimum quantity of 5 for 20% discount.
+  </div>
+</section>
+
 <script>
   const tabs = document.querySelectorAll('nav button');
   const sections = document.querySelectorAll('section');
@@ -201,6 +270,33 @@
       tab.classList.add('active');
       document.getElementById(tab.dataset.tab).classList.add('active');
     });
+  });
+
+  // Placeholder form submission handler
+  document.getElementById('orderForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const diamondType = e.target.diamondType.value;
+    const size = e.target.size.value.trim();
+    const clarity = e.target.clarity.value.trim();
+    const quantity = parseInt(e.target.quantity.value, 10);
+    const email = e.target.email.value.trim();
+
+    if (!diamondType || !size || !email || !quantity || quantity < 1) {
+      alert('Please fill out all required fields with valid values.');
+      return;
+    }
+
+    alert(`Order submitted:\n
+Diamond Type: ${diamondType}
+Size/Carat: ${size}
+Clarity: ${clarity || 'N/A'}
+Quantity: ${quantity}
+Email: ${email}
+
+We will contact you soon to confirm and arrange payment.`);
+
+    e.target.reset();
   });
 </script>
 
